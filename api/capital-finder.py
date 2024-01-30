@@ -32,7 +32,7 @@ class handler(BaseHTTPRequestHandler):
 
     def get_country_capital(self, country_name):
         try:
-            response = requests.get(f"https://restcountries.com/v3/name/{country_name}")
+            response = requests.get(f"https://restcountries.com/v3.1/name/{country_name}")
             if response.status_code == 200:
                 data = response.json()
                 return data[0]['capital']
@@ -43,7 +43,7 @@ class handler(BaseHTTPRequestHandler):
 
     def get_country_by_capital(self, capital_name):
         try:
-            response = requests.get(f"https://restcountries.com/v3/capital/{capital_name}")
+            response = requests.get(f"https://restcountries.com/v3.1/capital/{capital_name}")
             if response.status_code == 200:
                 data = response.json()
                 return data[0]['name']['common']
